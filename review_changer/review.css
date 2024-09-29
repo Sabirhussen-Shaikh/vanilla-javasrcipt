@@ -1,0 +1,39 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightgoldenrodyellow;
+}
+
+.title_card{
+    background-color: lightblue;
+    height: 180px;
+    width: 280px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px lightseagreen ;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: 1fr 1fr 4fr 1fr;
+    row-gap: 1px;
+}
+
+.author,.post,.comment,.chevron{
+    text-align: center;
+    margin: 4px;
+}
+
+.post{
+    color: seagreen;
+}
+
+.comment{
+    color: white;
+}
+
+.chevron{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 200px;
+}
