@@ -40,9 +40,10 @@ function renderTodoList() {
 
         todoHtml += html;
 
-        localStorage.setItem('todoValues',JSON.stringify(todoList));
     }
     // console.log(todoHtml)
+
+    localStorage.setItem('todoValues',JSON.stringify(todoList));
 
     document.querySelector('.js-todo-render').innerHTML = todoHtml;
 
