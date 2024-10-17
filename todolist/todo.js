@@ -26,7 +26,7 @@ function renderTodoList() {
 
         // const name = todoObj.name;
         // const dueDate = todoObj.dueDate;
-        const {name,dueDate} = todoObj;//destructing
+        const { name, dueDate } = todoObj;//destructing
 
         const html = `
         <div>${name}</div>
@@ -43,31 +43,60 @@ function renderTodoList() {
     }
     // console.log(todoHtml)
 
-    localStorage.setItem('todoValues',JSON.stringify(todoList));
+    localStorage.setItem('todoValues', JSON.stringify(todoList));
 
     document.querySelector('.js-todo-render').innerHTML = todoHtml;
 
 }
 
+
 //add function
 function addTodo() {
 
+    if (isEmpty() == false) {
+
+        // querySelector
+        const inputElement = document.querySelector('.js-input-name');
+        const nameEntered = inputElement.value;
+
+        const dateInputElement = document.querySelector('.js-input-date');
+        const dueDateEntered = dateInputElement.value;
+
+        todoList.push({
+            name: nameEntered,
+            dueDate: dueDateEntered
+            //shorthand property
+            // name,
+            // dueDate
+        });
+        console.log(todoList);
+
+        inputElement.value = '';
+        dateInputElement.value = '';
+
+        renderTodoList();
+    }
+
+}
+
+function isEmpty() {
+
+    // querySelector
     const inputElement = document.querySelector('.js-input-name');
-    const name = inputElement.value;
+    const nameEntered = inputElement.value;
 
     const dateInputElement = document.querySelector('.js-input-date');
-    const dueDate = dateInputElement.value;
+    const dueDateEntered = dateInputElement.value;
 
-    todoList.push({
-        // name : name,
-        // dueDate : dueDate
-        //shorthand property
-        name,
-        dueDate
-    });
-    // console.log(todoList);
+    if (nameEntered === '') {
+        alert("please enter todo name...!");
+        return true;
+    }
 
-    inputElement.value = '';
+    if (dueDateEntered === '') {
+        alert('please enter deadline date...!');
+        return true;
+    }
 
-    renderTodoList();
+    return false;
 }
