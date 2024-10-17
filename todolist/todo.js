@@ -1,5 +1,14 @@
 // todo array
-const todoList = ['study', 'assignment', 'sports'];
+const todoList = [{
+    name : 'study',
+    dueDate : '22-03-2024'
+},{
+    name : 'assignment',
+    dueDate : '08-05-2022'
+},{
+    name : 'sports',
+    dueDate : '30-10-2024'
+}];
 
 renderTodoList();
 
@@ -9,10 +18,15 @@ function renderTodoList() {
     let todoHtml = '';
 
     for (let i = 0; i < todoList.length; i++) {
-        const todo = todoList[i];
+        const todoObj = todoList[i];
+
+        // const name = todoObj.name;
+        // const dueDate = todoObj.dueDate;
+        const {name,dueDate} = todoObj;//destructing
+
         const html = `
         <p>
-            ${todo} 
+            ${name} ${dueDate}
             <button onclick="
                 todoList.splice(${i},1);
                 renderTodoList();
