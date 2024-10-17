@@ -1,14 +1,18 @@
 // todo array
-const todoList = [{
-    name : 'study',
-    dueDate : '22-03-2024'
-},{
-    name : 'assignment',
-    dueDate : '08-05-2022'
-},{
-    name : 'sports',
-    dueDate : '30-10-2024'
-}];
+// const todoList = [{
+//     name : 'study',
+//     dueDate : '22-03-2024'
+// },{
+//     name : 'assignment',
+//     dueDate : '08-05-2022'
+// },{
+//     name : 'sports',
+//     dueDate : '30-10-2024'
+// }];
+
+const todoList = JSON.parse(localStorage.getItem('todoValues'));
+
+console.log(JSON.parse(localStorage.getItem('todoValues')));
 
 renderTodoList();
 
@@ -35,10 +39,13 @@ function renderTodoList() {
         `;
 
         todoHtml += html;
+
+        localStorage.setItem('todoValues',JSON.stringify(todoList));
     }
-    console.log(todoHtml)
+    // console.log(todoHtml)
 
     document.querySelector('.js-todo-render').innerHTML = todoHtml;
+
 }
 
 //add function
